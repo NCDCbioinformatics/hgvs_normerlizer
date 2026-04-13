@@ -15,7 +15,7 @@ hgvsnorm --excel-in "/path/to/minimal_maf_test.xlsx" \
 - In cases where the nomenclature is not unified (323G>A, P.G125D, etc.), change to the standardized HGVS nomenclature.
 ## Publication context
 
-This repository is a component of the CURE-NGS panel harmonization framework described in the manuscript \"Multi-Institutional Harmonization Framework for Heterogeneous Panel-Based NGS in Precision Oncology.\"
+This repository is a component of the CURE-NGS panel harmonization framework described in the manuscript "Multi-Institutional Harmonization Framework for Heterogeneous Panel-Based NGS in Precision Oncology."
 
 Umbrella repository: https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework
 
