@@ -13,4 +13,14 @@ hgvsnorm --excel-in "/path/to/minimal_maf_test.xlsx" \
 - Unifying mutation nomenclature, which is written in various ways, into HGVS
 - Basically it works on HGVSc, HGVSp, HGVSp_short and if possible it recognizes and fills each other complementarily.
 - In cases where the nomenclature is not unified (323G>A, P.G125D, etc.), change to the standardized HGVS nomenclature.
+## Publication context
 
+This repository is a component of the CURE-NGS panel harmonization framework described in the manuscript \"Multi-Institutional Harmonization Framework for Heterogeneous Panel-Based NGS in Precision Oncology.\"
+
+Umbrella repository: https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework
+
+## Software metadata
+
+- Operating system(s): Linux or macOS; Windows users can run the package in a compatible Python environment
+- Programming language(s): Python
+- License: MIT License
