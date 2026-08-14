@@ -94,8 +94,8 @@ def main():
     if args.in_file and args.out_file:
         df = pd.read_csv(args.in_file, sep=args.sep)
         res = normalize_columns(df, p_cols=p_cols, c_cols=c_cols, threads=args.threads)
-        res.to_csv(args.out_file, sep=args.spep, index=False)
-        print(f"Wrote: {args.excel_out}")
+        res.to_csv(args.out_file, sep=args.sep, index=False)
+        print(f"Wrote: {args.out_file}")
         return
 
     p.print_help()

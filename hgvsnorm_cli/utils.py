@@ -84,7 +84,7 @@ def normalize_hgvsc_like(x: Optional[str]) -> Tuple[Optional[str], List[str]]:
         body = s[1:]
         if body.startswith("."):
             body = body[1:]
-        reasons.append( "normalized_prefix_c")
+        reasons.append( "normalized_prefix_c")
     else:
         body = s
 
