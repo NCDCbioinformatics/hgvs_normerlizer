@@ -1,0 +1,32 @@
+name: regression-tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  csv-separator-regression:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - uses: actions/setup-python@v6.2.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install pinned test environment
+        run: >-
+          python -m pip install
+          pandas==2.2.3
+          openpyxl==3.1.5
+          pytest==8.3.5
+      - name: Install package without resolving dependencies
+        run: python -m pip install --no-deps --editable .
+      - name: Run CSV separator regression test
+        run: python -m pytest -q tests/test_csv_cli.py
