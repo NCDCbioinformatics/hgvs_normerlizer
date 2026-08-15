@@ -4,6 +4,18 @@
 > and automated regression suite now live in
 > [cure-ngs-panel-harmonization-framework](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework).
 
+## Reproducible installation and test data
+
+- [Reviewer Docker quick start](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework#reviewer-quick-start)
+- [Clean-machine installation](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/INSTALLATION.md)
+- [HGVS normalization commands](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/COMMAND_REFERENCE.md#structured-hgvs-or-report-derived-route)
+- [Network-free reviewer walkthrough](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/REVIEWER_REPRODUCTION.md)
+- [CSV regression fixture](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/examples/synthetic/hgvs_input.csv)
+
+The latest audited historical release is `hgvsnorm-cli-0.2.2.tar`. The
+reviewer-reported CSV separator failure is covered by an automated regression
+test, and the consolidated implementation uses `args.sep` consistently.
+
 <img width="2406" height="1335" alt="image" src="https://github.com/user-attachments/assets/1f8476f1-1f36-4edd-b130-31c39317f933" />
 
 python3 -m pip install hgvsnorm-cli-0.2.2.tar.gz \
