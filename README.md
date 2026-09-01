@@ -22,27 +22,31 @@ harmonization framework.
 ## Install the supported Docker distribution
 
 Install [Docker Desktop](https://docs.docker.com/desktop/) or
-[Docker Engine](https://docs.docker.com/engine/install/), then build:
+[Docker Engine](https://docs.docker.com/engine/install/), then pull the public
+core image without a GitHub login:
 
 ```bash
-git clone https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core
+```
+
+To build the identical `v0.2.3` release source instead:
+
+```bash
+git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
 cd cure-ngs-panel-harmonization-framework
-docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.1.0-core .
+docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.2.3-core .
 ```
 
-After release `0.1.0` appears in the umbrella **Packages** panel:
-
-```bash
-docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.1.0-core
-```
-
-Use the source build if the package has not yet been published.
+The supported container is the umbrella repository's audited
+[`v0.2.3` distribution](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/releases/tag/v0.2.3).
 
 ## Verify and run this capability
 
 The full reviewer walkthrough includes the CSV separator regression:
 
 ```bash
+git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+cd cure-ngs-panel-harmonization-framework
 bash scripts/run_reviewer_demo.sh
 ```
 
@@ -54,7 +58,8 @@ chmod 0777 output  # Linux: writable by the image's non-root UID 10001
 docker run --rm \
   --volume "$PWD/examples:/examples:ro" \
   --volume "$PWD/output:/data/output" \
-  cure-ngs-harmonizer:0.1.0-core normalize-hgvs-table \
+  ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core \
+  normalize-hgvs-table \
   /examples/synthetic/hgvs_input.csv \
   /data/output/hgvs.normalized.csv --delimiter comma
 ```
@@ -82,5 +87,6 @@ regression suite instead of creating an unpinned Python environment.
 - [HGVS normalization commands](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/COMMAND_REFERENCE.md#structured-hgvs-or-report-derived-route)
 - [CSV regression fixture](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/examples/synthetic/hgvs_input.csv)
 - [Reviewer reproduction checklist](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/REVIEWER_REPRODUCTION.md)
+- [Clean public-image validation](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/actions/runs/33350796468)
 
 License: MIT. No CURE-NGS patient-level data are distributed here.
