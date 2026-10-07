@@ -21,31 +21,38 @@ harmonization framework.
 
 ## Install the supported Docker distribution
 
+The supported unified distribution is 0.2.6. This component can run in the
+core image; no host Python installation is required. The
+[Docker-only quickstart](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/v0.2.6/docs/DOCKER_ONLY_QUICKSTART.md)
+explains image-contained self-tests and CSV/Excel tutorial outputs. The
+separator regression is tested in the unified distribution; historical
+component releases remain unchanged.
+
 Install [Docker Desktop](https://docs.docker.com/desktop/) or
 [Docker Engine](https://docs.docker.com/engine/install/), then pull the public
 core image without a GitHub login:
 
 ```bash
-docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core
+docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.6-core
 ```
 
-To build the identical `v0.2.3` release source instead:
+To build the identical `v0.2.6` release source instead:
 
 ```bash
-git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+git clone --branch v0.2.6 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
 cd cure-ngs-panel-harmonization-framework
-docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.2.3-core .
+docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.2.6-core .
 ```
 
 The supported container is the umbrella repository's audited
-[`v0.2.3` distribution](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/releases/tag/v0.2.3).
+[`v0.2.6` distribution](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/releases/tag/v0.2.6).
 
 ## Verify and run this capability
 
 The full reviewer walkthrough includes the CSV separator regression:
 
 ```bash
-git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+git clone --branch v0.2.6 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
 cd cure-ngs-panel-harmonization-framework
 bash scripts/run_reviewer_demo.sh
 ```
@@ -58,7 +65,7 @@ chmod 0777 output  # Linux: writable by the image's non-root UID 10001
 docker run --rm \
   --volume "$PWD/examples:/examples:ro" \
   --volume "$PWD/output:/data/output" \
-  ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core \
+  ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.6-core \
   normalize-hgvs-table \
   /examples/synthetic/hgvs_input.csv \
   /data/output/hgvs.normalized.csv --delimiter comma
